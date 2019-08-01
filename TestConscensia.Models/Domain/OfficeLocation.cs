@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using TestConscensia.Models.Base;
 
 namespace TestConscensia.Models.Domain
 {
-    public class OfficeLocation
+    public class OfficeLocation : IBaseModel
     {
         public long Id { get; set; }
 

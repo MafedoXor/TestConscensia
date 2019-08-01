@@ -3,10 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:TestConscensia"
+        xmlns:prism="http://prismlibrary.com/"
+        xmlns:navigationNames="clr-namespace:TestConscensia.Common.Navigation.NavigationNames;assembly=TestConscensia.Common.Navigation"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <ContentControl prism:RegionManager.RegionName="{Binding Source={x:Static navigationNames:RegionNames.MainContentRegion}}" />
     </Grid>
 </Window>

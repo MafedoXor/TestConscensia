@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using TestConscensia.Models.Base;
 
 namespace TestConscensia.Models.Domain
 {
-    public class ReportCode
+    public class ReportCode : IBaseModel
     {
         public long Id { get; set; }
 

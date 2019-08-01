@@ -46,14 +46,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Base\BaseDataViewModel.cs" />
+    <Compile Include="Base\IBaseModel.cs" />
     <Compile Include="Domain\OfficeLocation.cs" />
     <Compile Include="Domain\ReportCode.cs" />
+    <Compile Include="Dto\OfficeLocationDto.cs" />
+    <Compile Include="Dto\ReportCodeDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\OfficeLocationViewModel.cs" />
+    <Compile Include="ViewModels\ReportCodeViewModel.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Base\" />
-    <Folder Include="Dto\" />
-    <Folder Include="ViewModels\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

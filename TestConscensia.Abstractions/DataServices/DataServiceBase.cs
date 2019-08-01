@@ -4,10 +4,11 @@ using System.Threading.Tasks;
 using TestConscensia.Abstractions.Mapper;
 using TestConscensia.Data;
 using TestConscensia.Data.Base;
+using TestConscensia.Models.Base;
 
 namespace TestConscensia.Abstractions.DataServices
 {
-    public abstract class DataServiceBase<TSource, TDest> : IDataServiceBase<TSource> where TSource : class where TDest : class, IBaseEntity
+    public abstract class DataServiceBase<TSource, TDest> : IDataServiceBase<TSource> where TSource : class, IBaseModel where TDest : class, IBaseEntity
     {
         private readonly IAppMapper _appMapper;
 

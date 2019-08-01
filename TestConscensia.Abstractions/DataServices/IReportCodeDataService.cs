@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using TestConscensia.Data.Entities;
+
 using TestConscensia.Models.Domain;
 
 namespace TestConscensia.Abstractions.DataServices

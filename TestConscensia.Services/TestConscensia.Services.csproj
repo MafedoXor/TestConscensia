@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="DataServices\ReportCodeDataService.cs" />
     <Compile Include="Mapper\AppMapper.cs" />
+    <Compile Include="Network\ApiService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

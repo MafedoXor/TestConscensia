@@ -1,17 +1,41 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Prism.Ioc;
+using Prism.Modularity;
+using Prism.Unity;
 using System.Windows;
+using TestConscensia.Abstractions.Mapper;
+using TestConscensia.Abstractions.Network;
+using TestConscensia.Module.Main;
+using TestConscensia.Services.Mapper;
+using TestConscensia.Services.Network;
 
 namespace TestConscensia
 {
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
-    public partial class App : Application
+    public partial class App : PrismApplication
     {
+        protected override Window CreateShell()
+        {
+            return Container.Resolve<MainWindow>();
+        }
+
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+        }
+
+        protected override void RegisterTypes(IContainerRegistry containerRegistry)
+        {
+            containerRegistry.RegisterSingleton<IAppMapper, AppMapper>();
+            containerRegistry.RegisterSingleton<IApiService, ApiService>();
+
+            //containerRegistry.RegisterSingleton<IReportCodeDataService, ReportCodeDataService>();
+        }
+
+        protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
+        {
+            moduleCatalog.AddModule<MainModule>();
+        }
     }
 }

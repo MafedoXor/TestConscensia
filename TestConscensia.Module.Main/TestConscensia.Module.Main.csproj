@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9E270DF0-9666-4772-A238-C8E7033BD819}</ProjectGuid>
+    <ProjectGuid>{C0D24E21-E7D4-4C3B-BE24-7E53BC08F9EA}</ProjectGuid>
     <OutputType>library</OutputType>
-    <RootNamespace>TestCoscensia.Module.Main</RootNamespace>
-    <AssemblyName>TestCoscensia.Module.Main</AssemblyName>
+    <RootNamespace>TestConscensia.Module.Main</RootNamespace>
+    <AssemblyName>TestConscensia.Module.Main</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -64,6 +64,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MainModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -77,6 +78,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="ViewModels\ReportViewerViewModel.cs" />
+    <Compile Include="Views\ReportViewerView.xaml.cs">
+      <DependentUpon>ReportViewerView.xaml</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -86,6 +91,26 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TestConscensia.Common.Navigation\TestConscensia.Common.Navigation.csproj">
+      <Project>{F2E32114-63C5-461F-AF77-677103661854}</Project>
+      <Name>TestConscensia.Common.Navigation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TestConscensia.Common.UI\TestConscensia.Common.UI.csproj">
+      <Project>{3b3a2277-9c95-4310-9ba1-c89d78ffc6e5}</Project>
+      <Name>TestConscensia.Common.UI</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ReportViewerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

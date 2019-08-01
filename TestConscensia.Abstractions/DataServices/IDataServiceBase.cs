@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using TestConscensia.Models.Base;
 
 namespace TestConscensia.Abstractions.DataServices
 {
-    public interface IDataServiceBase<T> where T : class
+    public interface IDataServiceBase<T> where T : class, IBaseModel
     {
         Task<bool> Add(T entity);
         Task<bool> AddRange(IEnumerable<T> list);

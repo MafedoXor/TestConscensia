@@ -35,11 +35,11 @@ namespace TestConscensia.Services.DataServices
             }
         }
 
-        public async Task<long> GetCountByDateRange(DateTime? from, DateTime? to)
+        public Task<long> GetCountByDateRange(DateTime? from, DateTime? to)
         {
             using (var unit = new UnitOfWork())
             {
-                return await unit.ReportCodeRepository.GetCountByDateRange(from, to);
+                return unit.ReportCodeRepository.GetCountByDateRange(from, to);
             }
         }
 
@@ -51,7 +51,7 @@ namespace TestConscensia.Services.DataServices
             }
         }
 
-        protected override IRepository<ReportCode> GetRepository(UnitOfWork unit)
+        protected override IRepository<ReportCodeEntity> GetRepository(UnitOfWork unit)
         {
             return unit.ReportCodeRepository;
         }

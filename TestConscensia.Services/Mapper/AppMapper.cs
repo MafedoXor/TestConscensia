@@ -1,6 +1,10 @@
 ﻿using AutoMapper;
 using System;
 using TestConscensia.Abstractions.Mapper;
+using TestConscensia.Data.Entities;
+using TestConscensia.Models.Domain;
+using TestConscensia.Models.Dto;
+using TestConscensia.Models.ViewModels;
 
 namespace TestConscensia.Services.Mapper
 {
@@ -69,6 +73,12 @@ namespace TestConscensia.Services.Mapper
                 ConfigureViewToDomainModelsMapping(expression);
 
                 #endregion
+
+                #region Models to Dtos and back
+
+                ConfigureDtoToDomainModelsMapping(expression);
+
+                #endregion
             });
 
             return cfg;
@@ -76,12 +86,29 @@ namespace TestConscensia.Services.Mapper
 
         private static void ConfigureEntityToDomainModelsMapping(IMapperConfigurationExpression expression)
         {
+            expression.CreateMap<ReportCode, ReportCodeEntity>();
+            expression.CreateMap<ReportCodeEntity, ReportCode>();
 
+            expression.CreateMap<OfficeLocation, OfficeLocationEntity>();
+            expression.CreateMap<OfficeLocationEntity, OfficeLocation>();
         }
 
         private static void ConfigureViewToDomainModelsMapping(IMapperConfigurationExpression expression)
         {
+            expression.CreateMap<ReportCode, ReportCodeViewModel>();
+            expression.CreateMap<ReportCodeViewModel, ReportCode>();
 
+            expression.CreateMap<OfficeLocation, OfficeLocationViewModel>();
+            expression.CreateMap<OfficeLocationViewModel, OfficeLocation>();
+        }
+
+        private static void ConfigureDtoToDomainModelsMapping(IMapperConfigurationExpression expression)
+        {
+            expression.CreateMap<ReportCode, ReportCodeDto>();
+            expression.CreateMap<ReportCodeDto, ReportCode>();
+
+            expression.CreateMap<OfficeLocation, OfficeLocationDto>();
+            expression.CreateMap<OfficeLocationDto, OfficeLocation>();
         }
 
         #endregion

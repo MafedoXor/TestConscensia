@@ -45,6 +45,7 @@
     <Compile Include="DataServices\IDataServiceBase.cs" />
     <Compile Include="DataServices\IReportCodeDataService.cs" />
     <Compile Include="Mapper\IAppMapper.cs" />
+    <Compile Include="Network\IApiService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

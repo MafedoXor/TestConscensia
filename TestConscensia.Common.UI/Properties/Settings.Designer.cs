@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TestCoscensia.Module.Main.Properties
+namespace TestConscensia.Common.UI.Properties
 {
     
     
