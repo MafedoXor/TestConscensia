@@ -20,7 +20,6 @@ namespace TestConscensia.Data.Contexts
         }, true)
         {
             Database.SetInitializer<TestDbContext>(new CreateDatabaseIfNotExists<TestDbContext>());
-
         }
 
         public TestDbContext() : base(new SQLiteConnection
@@ -33,11 +32,13 @@ namespace TestConscensia.Data.Contexts
             Database.SetInitializer<TestDbContext>(new CreateDatabaseIfNotExists<TestDbContext>());
         }
 
-        public DbSet<ReportCodeEntity> Type { get; set; }
+        public DbSet<ReportCodeEntity> ReportCode { get; set; }
+        public DbSet<OfficeLocationEntity> OfficeLocation { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             var sqliteConnectionInitializer = new SqliteCreateDatabaseIfNotExists<TestDbContext>(modelBuilder);
+
             Database.SetInitializer(sqliteConnectionInitializer);
         }
     }

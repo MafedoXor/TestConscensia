@@ -46,11 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain\OfficeLocation.cs" />
+    <Compile Include="Domain\ReportCode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Base\" />
-    <Folder Include="Domain\" />
     <Folder Include="Dto\" />
     <Folder Include="ViewModels\" />
   </ItemGroup>

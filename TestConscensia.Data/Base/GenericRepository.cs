@@ -82,16 +82,6 @@ namespace TestConscensia.Data.Base
             return Context.SaveChangesAsync();
         }
 
-        public virtual Task Update(TEntity entity)
-        {
-            if (entity == null)
-                throw new ArgumentNullException("entity");
-
-            DBSet.AddOrUpdate(entity);
-
-            return Context.SaveChangesAsync();
-        }
-
         public virtual Task Delete(TEntity entity)
         {
             if (entity == null)

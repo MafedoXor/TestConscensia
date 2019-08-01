@@ -15,7 +15,7 @@ namespace TestConscensia.Data.Base
         Task Insert(IEnumerable<TEntity> entities);
         Task InsertOrUpdate(TEntity entity);
         Task InsertOrUpdate(IEnumerable<TEntity> entity);
-        Task Update(TEntity entityToUpdate);
         Task Delete(TEntity entity);
+        Task<List<TEntity>> GetAll();
     }
 }

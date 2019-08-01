@@ -41,11 +41,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataServices\DataServiceBase.cs" />
+    <Compile Include="DataServices\IDataServiceBase.cs" />
+    <Compile Include="DataServices\IReportCodeDataService.cs" />
+    <Compile Include="Mapper\IAppMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="DataServices\" />
-    <Folder Include="Mapper\" />
+    <ProjectReference Include="..\TestConscensia.Data\TestConscensia.Data.csproj">
+      <Project>{be30dbf3-9afa-43cf-b9b2-abb538f79347}</Project>
+      <Name>TestConscensia.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TestConscensia.Models\TestConscensia.Models.csproj">
+      <Project>{D37BCAF8-0C55-4373-9A43-A74705970C6B}</Project>
+      <Name>TestConscensia.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

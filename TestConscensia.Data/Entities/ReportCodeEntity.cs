@@ -11,7 +11,7 @@ namespace TestConscensia.Data.Entities
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long Id { get; set; }
 
-        public string Location { get; set; }
+        public OfficeLocationEntity Location { get; set; }
 
         public DateTime? CreationDate { get; set; }
     }

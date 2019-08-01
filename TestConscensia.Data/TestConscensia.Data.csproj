@@ -71,6 +71,7 @@
     <Compile Include="Entities\OfficeLocationEntity.cs" />
     <Compile Include="Entities\ReportCodeEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\OfficeLocationRepository.cs" />
     <Compile Include="Repositories\ReportCodeRepository.cs" />
     <Compile Include="UnitOfWork.cs" />
   </ItemGroup>

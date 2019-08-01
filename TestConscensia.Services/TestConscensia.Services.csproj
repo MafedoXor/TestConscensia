@@ -44,16 +44,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataServices\ReportCodeDataService.cs" />
+    <Compile Include="Mapper\AppMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="DataServices\" />
-    <Folder Include="Mapper\" />
-  </ItemGroup>
-  <ItemGroup>
+    <ProjectReference Include="..\TestConscensia.Abstractions\TestConscensia.Abstractions.csproj">
+      <Project>{c53105fd-86ae-4baf-a812-48d7eb1dd88d}</Project>
+      <Name>TestConscensia.Abstractions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TestConscensia.Data\TestConscensia.Data.csproj">
       <Project>{be30dbf3-9afa-43cf-b9b2-abb538f79347}</Project>
       <Name>TestConscensia.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TestConscensia.Models\TestConscensia.Models.csproj">
+      <Project>{D37BCAF8-0C55-4373-9A43-A74705970C6B}</Project>
+      <Name>TestConscensia.Models</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
