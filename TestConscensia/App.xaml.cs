@@ -28,9 +28,8 @@ namespace TestConscensia
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterSingleton<IAppMapper, AppMapper>();
-            containerRegistry.RegisterSingleton<IApiService, ApiService>();
-
-            //containerRegistry.RegisterSingleton<IReportCodeDataService, ReportCodeDataService>();
+            containerRegistry.RegisterSingleton<IConnectionHelper, ConnectionHelper>();
+            containerRegistry.RegisterSingleton<INetworkService, NetworkService>();
         }
 
         protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)

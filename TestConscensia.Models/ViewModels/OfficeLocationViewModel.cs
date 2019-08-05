@@ -7,18 +7,13 @@ namespace TestConscensia.Models.ViewModels
     {
         private long _id;
         private string _countryCode;
-        private int _officeNumber;
+        private string _officeNumber;
 
         private ObservableCollection<ReportCodeViewModel> _reportCodes = new ObservableCollection<ReportCodeViewModel>();
 
         public OfficeLocationViewModel()
         {
 
-        }
-
-        public override string ToString()
-        {
-            return CountryCode + OfficeNumber;
         }
 
         public long Id
@@ -41,7 +36,7 @@ namespace TestConscensia.Models.ViewModels
             }
         }
 
-        public int OfficeNumber
+        public string OfficeNumber
         {
             get => _officeNumber;
             set
@@ -59,6 +54,11 @@ namespace TestConscensia.Models.ViewModels
                 _reportCodes = value;
                 OnPropertyChanged();
             }
+        }
+
+        public override string ToString()
+        {
+            return CountryCode.ToString() + OfficeNumber.ToString().PadLeft(2, '0');
         }
     }
 }

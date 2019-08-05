@@ -7,6 +7,8 @@ namespace TestConscensia.Models.Domain
     {
         public long Id { get; set; }
 
+        public string Code { get; set; }
+
         public OfficeLocation Location { get; set; }
 
         public DateTime? CreationDate { get; set; }

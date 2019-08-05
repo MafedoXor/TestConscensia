@@ -3,23 +3,197 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              xmlns:prism="http://prismlibrary.com/"
+             xmlns:templateselectors="clr-namespace:TestConscensia.Module.Main.TemplateSelectors"
              prism:ViewModelLocator.AutoWireViewModel="True"
+             TextElement.Foreground="{StaticResource DefultTextBrush}"
+             TextElement.FontSize="{StaticResource DefaultFontSize}"
+             TextElement.FontFamily="Segoe UI"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" 
+             d:DesignWidth="800">
+
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding ViewLoadedCommand}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/TestConscensia.Module.Main;component/themes/Generic.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/TestConscensia.Module.Main;component/themes/Generic.xaml" />
             </ResourceDictionary.MergedDictionaries>
+
+            <DataTemplate x:Key="UaIconTemplate">
+                <Image Source="{StaticResource UkraineIcon}" />
+            </DataTemplate>
+            <DataTemplate x:Key="UsIconTemplate">
+                <Image Source="{StaticResource USIcon}" />
+            </DataTemplate>
+            <DataTemplate x:Key="DeIconTemplate">
+                <Image Source="{StaticResource DenmarkIcon}" />
+            </DataTemplate>
+            <DataTemplate x:Key="GeIconTemplate">
+                <Image Source="{StaticResource GermanyIcon}" />
+            </DataTemplate>
+            <DataTemplate x:Key="DefaultIconCountryTemplate" />
         </ResourceDictionary>
     </UserControl.Resources>
 
     <Grid>
-        <TextBox Width="150" 
-                 Height="40"
-                 VerticalAlignment="Center"
-                 HorizontalAlignment="Center"
-                 VerticalContentAlignment="Center" />
+        <Grid Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.5*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <StackPanel HorizontalAlignment="Left">
+                    <TextBlock Text="Office locations:" />
+                    <ComboBox ItemsSource="{Binding OfficeLocations}" 
+                              SelectedItem="{Binding SelectedLocation, Mode=TwoWay}" 
+                              Margin="0,5">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+
+                                    <ContentControl MaxHeight="15"
+                                                    MaxWidth="15"
+                                                    Content="{Binding}">
+                                        <ContentControl.ContentTemplateSelector>
+                                            <templateselectors:CountryDataTemplateSelector UaTemplate="{StaticResource UaIconTemplate}"
+                                                                                           UsTemplate="{StaticResource UsIconTemplate}"
+                                                                                           DeTemplate="{StaticResource DeIconTemplate}"
+                                                                                           GeTemplate="{StaticResource GeIconTemplate}"
+                                                                                           DefaultTemplate="{StaticResource DefaultIconCountryTemplate}" />
+                                        </ContentControl.ContentTemplateSelector>
+                                    </ContentControl>
+
+                                    <TextBlock Grid.Column="1"
+                                               Text="{Binding}"
+                                               HorizontalAlignment="Center"
+                                               Margin="10,5" />
+                                </Grid>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </StackPanel>
+
+                <Button Grid.Column="1"
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Left"
+                        Margin="25"
+                        Content="Generate code"
+                        Command="{Binding GenerateCodeCommand}" />
+            </Grid>
+
+            <ItemsControl Grid.Row="1"
+                          ItemsSource="{Binding ReportCodes}"
+                          ScrollViewer.VerticalScrollBarVisibility="Auto"
+                          ScrollViewer.CanContentScroll="True"
+                          ScrollViewer.PanningMode="VerticalOnly"
+                          VirtualizingPanel.IsVirtualizing="True"
+                          VirtualizingPanel.ScrollUnit="Pixel"
+                          VirtualizingPanel.VirtualizationMode="Recycling">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <VirtualizingStackPanel />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+
+                <ItemsControl.Template>
+                    <ControlTemplate TargetType="ItemsControl">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+
+                            <Border BorderThickness="1"
+                                    BorderBrush="DimGray"
+                                    Background="#DDDDDD">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock Text="Code" 
+                                           HorizontalAlignment="Left"
+                                           Margin="10,5" />
+                                    <Rectangle Width="1"
+                                           Fill="Black"
+                                           HorizontalAlignment="Right" />
+                                    <TextBlock Text="Date" 
+                                           Grid.Column="1"
+                                           HorizontalAlignment="Left" 
+                                           Margin="10,5" />
+                                </Grid>
+                            </Border>
+
+                            <Border BorderThickness="1,0,1,1"
+                                    BorderBrush="DimGray"
+                                    Grid.Row="1">
+                                <ScrollViewer x:Name="PART_ScrollViewer"
+                                              Focusable="False">
+                                    <ItemsPresenter SnapsToDevicePixels="True" />
+                                </ScrollViewer>
+                            </Border>
+                        </Grid>
+                    </ControlTemplate>
+                </ItemsControl.Template>
+
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderThickness="0,0,0,1"
+                                BorderBrush="DimGray">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Text="{Binding Code}" 
+                                           HorizontalAlignment="Left"
+                                           Margin="10,5" />
+                                <Rectangle Width="1"
+                                           Fill="Black"
+                                           HorizontalAlignment="Right" />
+                                <TextBlock Text="{Binding CreationDate, StringFormat=U}" 
+                                           Grid.Column="1"
+                                           HorizontalAlignment="Left" 
+                                           Margin="10,5" />
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Grid>
+
+        <Border Background="#44000000" 
+                Visibility="{Binding IsLoading, Converter={StaticResource BoolToVisibilityConverter}}">
+            <Border Background="#44000000"
+                    CornerRadius="10"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Padding="20,10">
+                <TextBlock Text="Loading..."
+                           FontSize="22"
+                           Foreground="White"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center" />
+            </Border>
+        </Border>
     </Grid>
 </UserControl>

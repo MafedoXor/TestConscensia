@@ -35,6 +35,9 @@
     <Reference Include="CommonServiceLocator, Version=2.0.4.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
       <HintPath>..\packages\CommonServiceLocator.2.0.4\lib\net46\CommonServiceLocator.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Xaml.Behaviors, Version=1.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Xaml.Behaviors.Wpf.1.0.1\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
+    </Reference>
     <Reference Include="Prism, Version=7.2.0.1367, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
       <HintPath>..\packages\Prism.Core.7.2.0.1367\lib\net45\Prism.dll</HintPath>
     </Reference>
@@ -78,6 +81,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="TemplateSelectors\CountryDataTemplateSelector.cs" />
     <Compile Include="ViewModels\ReportViewerViewModel.cs" />
     <Compile Include="Views\ReportViewerView.xaml.cs">
       <DependentUpon>ReportViewerView.xaml</DependentUpon>
@@ -93,6 +97,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\TestConscensia.Abstractions\TestConscensia.Abstractions.csproj">
+      <Project>{C53105FD-86AE-4BAF-A812-48D7EB1DD88D}</Project>
+      <Name>TestConscensia.Abstractions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TestConscensia.Common.Navigation\TestConscensia.Common.Navigation.csproj">
       <Project>{F2E32114-63C5-461F-AF77-677103661854}</Project>
       <Name>TestConscensia.Common.Navigation</Name>
@@ -100,6 +108,10 @@
     <ProjectReference Include="..\TestConscensia.Common.UI\TestConscensia.Common.UI.csproj">
       <Project>{3b3a2277-9c95-4310-9ba1-c89d78ffc6e5}</Project>
       <Name>TestConscensia.Common.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TestConscensia.Models\TestConscensia.Models.csproj">
+      <Project>{D37BCAF8-0C55-4373-9A43-A74705970C6B}</Project>
+      <Name>TestConscensia.Models</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

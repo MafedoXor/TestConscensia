@@ -19,7 +19,7 @@ namespace TestConscensia.Data.Contexts
                 new SQLiteConnectionStringBuilder { DataSource = dbPath, ForeignKeys = true }.ConnectionString
         }, true)
         {
-            Database.SetInitializer<TestDbContext>(new CreateDatabaseIfNotExists<TestDbContext>());
+            Database.SetInitializer<TestDbContext>(new DropCreateDatabaseAlways<TestDbContext>());
         }
 
         public TestDbContext() : base(new SQLiteConnection
@@ -29,7 +29,7 @@ namespace TestConscensia.Data.Contexts
                     .ConnectionString
         }, true)
         {
-            Database.SetInitializer<TestDbContext>(new CreateDatabaseIfNotExists<TestDbContext>());
+            Database.SetInitializer<TestDbContext>(new DropCreateDatabaseAlways<TestDbContext>());
         }
 
         public DbSet<ReportCodeEntity> ReportCode { get; set; }
@@ -37,7 +37,7 @@ namespace TestConscensia.Data.Contexts
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            var sqliteConnectionInitializer = new SqliteCreateDatabaseIfNotExists<TestDbContext>(modelBuilder);
+            var sqliteConnectionInitializer = new SqliteDropCreateDatabaseAlways<TestDbContext>(modelBuilder);
 
             Database.SetInitializer(sqliteConnectionInitializer);
         }

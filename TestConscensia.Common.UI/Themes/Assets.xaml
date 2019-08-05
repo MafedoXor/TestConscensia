@@ -1,0 +1,11 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <BitmapImage x:Key="GermanyIcon"
+           UriSource="pack://application:,,,/TestConscensia.Common.UI;component\Assets\germany.png" />
+    <BitmapImage x:Key="DenmarkIcon"
+           UriSource="pack://application:,,,/TestConscensia.Common.UI;component\Assets\denmark.png" />
+    <BitmapImage x:Key="UkraineIcon"                                                   
+           UriSource="pack://application:,,,/TestConscensia.Common.UI;component\Assets\ukraine.png" />
+    <BitmapImage x:Key="USIcon"                                             
+           UriSource="pack://application:,,,/TestConscensia.Common.UI;component\Assets\united_states.png" />
+</ResourceDictionary>

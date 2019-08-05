@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using TestConscensia.Abstractions.DataServices;
 using TestConscensia.Abstractions.Mapper;
@@ -27,11 +26,11 @@ namespace TestConscensia.Services.DataServices
             }
         }
 
-        public async Task<List<ReportCode>> GetByLocation(string countryCode, int officeNumber)
+        public async Task<List<ReportCode>> GetByLocation(string officeLocation)
         {
             using (var unit = new UnitOfWork())
             {
-                return (await unit.ReportCodeRepository.GetByLocation(countryCode, officeNumber)).Select(MapToDomainModel).ToList();
+                return (await unit.ReportCodeRepository.GetByLocation(officeLocation)).Select(MapToDomainModel).ToList();
             }
         }
 

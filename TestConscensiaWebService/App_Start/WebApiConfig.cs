@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.Http;
+﻿using System.Web.Http;
+using TestConscensiaWebService.App_Start;
 
 namespace TestConscensiaWebService
 {
@@ -13,7 +11,7 @@ namespace TestConscensiaWebService
 
             // Web API routes
             config.MapHttpAttributeRoutes();
-
+            config.DependencyResolver = new UnityDependencyResolver(UnityConfig.Container);
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",

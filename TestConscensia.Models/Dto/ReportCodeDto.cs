@@ -6,6 +6,8 @@ namespace TestConscensia.Models.Dto
     {
         public long Id { get; set; }
 
+        public string Code { get; set; }
+
         public OfficeLocationDto Location { get; set; }
 
         public DateTime? CreationDate { get; set; }

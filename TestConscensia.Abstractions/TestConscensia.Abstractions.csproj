@@ -41,11 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\IQualityReportManager.cs" />
     <Compile Include="DataServices\DataServiceBase.cs" />
     <Compile Include="DataServices\IDataServiceBase.cs" />
+    <Compile Include="DataServices\IOfficeLocationDataService.cs" />
     <Compile Include="DataServices\IReportCodeDataService.cs" />
     <Compile Include="Mapper\IAppMapper.cs" />
-    <Compile Include="Network\IApiService.cs" />
+    <Compile Include="Network\IConnectionHelper.cs" />
+    <Compile Include="Network\INetworkService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

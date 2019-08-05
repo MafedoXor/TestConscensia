@@ -15,6 +15,11 @@ namespace TestConscensia.Data.Entities
 
         public int OfficeNumber { get; set; }
 
-        public List<ReportCodeEntity> ReportCodeEntities { get; set; }
+        public List<ReportCodeEntity> ReportCodes { get; set; }
+
+        public override string ToString()
+        {
+            return CountryCode.ToString() + OfficeNumber.ToString().PadLeft(2, '0');
+        }
     }
 }

@@ -52,6 +52,7 @@
     <Compile Include="Domain\ReportCode.cs" />
     <Compile Include="Dto\OfficeLocationDto.cs" />
     <Compile Include="Dto\ReportCodeDto.cs" />
+    <Compile Include="Enums\HttpRequestEnum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\OfficeLocationViewModel.cs" />
     <Compile Include="ViewModels\ReportCodeViewModel.cs" />

@@ -39,22 +39,14 @@ namespace TestConscensia.Data.Repositories
             return (await GetAll()).LastOrDefault();
         }
 
-        public Task<List<ReportCodeEntity>> GetByLocation(string countryCode, int? officeNumber)
+        public Task<List<ReportCodeEntity>> GetByLocation(string officeLocation)
         {
-            if (string.IsNullOrWhiteSpace(countryCode) && officeNumber < 0)
+            if (string.IsNullOrWhiteSpace(officeLocation))
                 return GetAll();
 
             var tcs = new TaskCompletionSource<List<ReportCodeEntity>>();
 
-            if (officeNumber >= 0)
-            {
-                tcs.SetResult(DBSet.Where(x => x.Location.OfficeNumber == officeNumber).ToList());
-            }
-            else if (!string.IsNullOrWhiteSpace(countryCode))
-            {
-                tcs.SetResult(DBSet.Where(x => x.Location.CountryCode == countryCode).ToList());
-            }
-            else tcs.SetResult(DBSet.Where(x => x.Location.OfficeNumber == officeNumber && x.Location.CountryCode == countryCode).ToList());
+            tcs.SetResult(DBSet.Where(x => x.Location.CountryCode == officeLocation).ToList());
 
             return tcs.Task;
         }

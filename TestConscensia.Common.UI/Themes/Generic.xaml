@@ -1,8 +1,14 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:converters="clr-namespace:TestConscensia.Common.UI.Converters">
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="pack://application:,,,/TestConscensia.Common.UI;component/themes/Fonts.xaml"/>
-        <ResourceDictionary Source="pack://application:,,,/TestConscensia.Common.UI;component/themes/DefaultStyles.xaml"/>
-        <ResourceDictionary Source="pack://application:,,,/TestConscensia.Common.UI;component/themes/Colors.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/TestConscensia.Common.UI;component/themes/Fonts.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/TestConscensia.Common.UI;component/themes/DefaultStyles.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/TestConscensia.Common.UI;component/themes/Colors.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/TestConscensia.Common.UI;component/themes/Assets.xaml" />
     </ResourceDictionary.MergedDictionaries>
+
+    <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+    <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityInvertedConverter" 
+                                          IsInverted="True" />
 </ResourceDictionary>

@@ -5,20 +5,14 @@ namespace TestConscensia.Models.ViewModels
 {
     public class ReportCodeViewModel : BaseDataViewModel
     {
+        private string _code;
         private long _id;
         private DateTime? _creationDate;
-        private OfficeLocationViewModel _officeLocation;
+        private OfficeLocationViewModel _location;
 
         public ReportCodeViewModel()
         {
 
-        }
-
-        public override string ToString()
-        {
-            var year = (CreationDate.HasValue ? CreationDate.Value.Year : new DateTime().Year).ToString().Substring(2, 2);
-
-            return OfficeLocation.ToString() + year;
         }
 
         public long Id
@@ -27,6 +21,16 @@ namespace TestConscensia.Models.ViewModels
             set
             {
                 _id = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string Code
+        {
+            get => _code;
+            set
+            {
+                _code = value;
                 OnPropertyChanged();
             }
         }
@@ -41,12 +45,12 @@ namespace TestConscensia.Models.ViewModels
             }
         }
 
-        public OfficeLocationViewModel OfficeLocation
+        public OfficeLocationViewModel Location
         {
-            get => _officeLocation;
+            get => _location;
             set
             {
-                _officeLocation = value;
+                _location = value;
                 OnPropertyChanged();
             }
         }

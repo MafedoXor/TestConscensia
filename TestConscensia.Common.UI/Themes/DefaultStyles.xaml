@@ -2,18 +2,24 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="pack://application:,,,/TestConscensia.Common.UI;component/themes/Fonts.xaml"/>
-        <ResourceDictionary Source="pack://application:,,,/TestConscensia.Common.UI;component/themes/Colors.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/TestConscensia.Common.UI;component/themes/Fonts.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/TestConscensia.Common.UI;component/themes/Colors.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <Style x:Key="DefaultTextBoxStyle" 
-           TargetType="TextBox">
-        <Setter Property="FontSize" 
-                Value="{StaticResource DefaultFontSize}" />
-        <Setter Property="Foreground" 
-                Value="{StaticResource DefultTextBrush}" />
+    <Style x:Key="DefaultButtonStyle" TargetType="Button">
+        <Setter Property="Padding" Value="10,5" />
+        <Setter Property="MinHeight" Value="35" />
+        <Setter Property="MinWidth" Value="100" />
     </Style>
 
-    <Style TargetType="TextBox" 
-           BasedOn="{StaticResource DefaultTextBoxStyle}" />
+    <Style TargetType="Button" BasedOn="{StaticResource DefaultButtonStyle}" />
+
+    <Style x:Key="DefaultComboBoxStyle" TargetType="ComboBox">
+        <Setter Property="Padding" Value="10,5" />
+        <Setter Property="MinHeight" Value="35" />
+        <Setter Property="MinWidth" Value="100" />
+    </Style>
+
+    <Style TargetType="ComboBox" 
+           BasedOn="{StaticResource DefaultComboBoxStyle}" />
 </ResourceDictionary>

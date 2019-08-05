@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-
 using TestConscensia.Models.Domain;
 
 namespace TestConscensia.Abstractions.DataServices
@@ -12,7 +11,7 @@ namespace TestConscensia.Abstractions.DataServices
 
         Task<ReportCode> GetLatest();
 
-        Task<List<ReportCode>> GetByLocation(string countryCode, int officeNumber);
+        Task<List<ReportCode>> GetByLocation(string officeLocation);
 
         Task<long> GetCountByDateRange(DateTime? from, DateTime? to);
     }

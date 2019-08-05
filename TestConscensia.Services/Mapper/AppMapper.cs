@@ -10,11 +10,7 @@ namespace TestConscensia.Services.Mapper
 {
     public class AppMapper : IAppMapper
     {
-        #region fields
         private AutoMapper.Mapper _localMapper;
-        #endregion
-
-        #region Constructors
 
         public AppMapper()
         {
@@ -29,8 +25,6 @@ namespace TestConscensia.Services.Mapper
                 Console.WriteLine(ex.Message);
             }
         }
-
-        #endregion
 
         public void InitMapper()
         {
@@ -55,8 +49,6 @@ namespace TestConscensia.Services.Mapper
         {
             return _localMapper.DefaultContext.Mapper.Map<TDes>(source);
         }
-
-        #region all other members
 
         private MapperConfiguration Config()
         {
@@ -110,7 +102,5 @@ namespace TestConscensia.Services.Mapper
             expression.CreateMap<OfficeLocation, OfficeLocationDto>();
             expression.CreateMap<OfficeLocationDto, OfficeLocation>();
         }
-
-        #endregion
     }
 }
